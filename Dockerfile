@@ -3,10 +3,11 @@ FROM rocker/verse
 RUN apt update && apt install -y man-db && rm -rf /var/lib/apt/lists/*
 RUN yes|unminimize
 
-ARG USER_ID
-RUN usermod -u $USER_ID rstudio
-RUN chown -R rstudio:rstudio /home/rstudio
+RUN R -e "install.packages(\"tidyverse\")"
+RUN R -e "install.packages(\"maps\")"
+RUN R -e "install.packages(\"kableExtra\")"
+RUN R -e "install.packages(\"readr\")"
+RUN R -e "install.packages(\"glmnet\")"
+RUN R -e "install.packages(\"corrplot\")"
+RUN R -e "install.packages(\"png\")"
 
-RUN apt update && apt install -y python3 python3-pip
-RUN pip3 install jupyter jupyterlab
-RUN pip3 install numpy scikit-learn pandas
