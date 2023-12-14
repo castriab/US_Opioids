@@ -44,9 +44,9 @@ I also wanted to investigate the second data set, which contained information on
 Many states also have additional services that are required to be provided at SSPs, including HIV screening, Educational services, Disposal services, Drug abuse treatment services, Hepatitis screening, and Naloxone services. Educational services are the most common requirement among states. 
 
 ![Service Requirements](./figures/required_services_SSPs.png)
-# Classification
+# Future questions
 
-Now that we have some understanding of what our data sets look like, we can explore which of these variables impact overdose rates. This is a rather small data set, as it only contains information about the 50 states and Washington DC, therefore, there are limitations to this analysis. 
+Now that we have some understanding of what our data sets look like, we can explore which of these variables impact overdose rates. This is a rather small data set, as it only contains information about the 50 states and Washington DC, therefore, there are limitations to this analysis. In the future, I would combine this with a larger dataset that has information about the deaths in each state. With this larger data set, more analysis could be conducted to see which variables predict overdose death. These predictions could point us towards economic and political solutions to slow this crisis. 
 
 
 
