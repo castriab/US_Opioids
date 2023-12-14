@@ -49,11 +49,11 @@ Consider this snippet from the Makefile included in this project:
 
 ```
 # Data cleaning 
-derived_data/cleaned_data.csv: .created-dirs data_cleaning.R source_data/CDC_Drug_Overdose_Deaths.csv source_data/SSP_Data.csv
-	Rscript data_cleaning.R
+derived_data/cleaned_data.csv: .created-dirs code/data_cleaning.R source_data/CDC_Drug_Overdose_Deaths.csv source_data/SSP_Data.csv
+	Rscript code/data_cleaning.R
 ```
 The lines with `#` are comments which describe the target. 
-Here we describe an artifact (`derived_data/cleaned_data.csv`), its dependencies (`.created-dirs`, `data_cleaning.R`, `source_data/CDC_Drug_Overdose_Deaths.csv`, `source_data/SSP_Data.csv`) and how to build it Rscript `data_cleaning.R`. If we invoke Make like so:
+Here we describe an artifact (`derived_data/cleaned_data.csv`), its dependencies (`.created-dirs`, `code/data_cleaning.R`, `source_data/CDC_Drug_Overdose_Deaths.csv`, `source_data/SSP_Data.csv`) and how to build it Rscript `code/data_cleaning.R`. If we invoke Make like so:
 
 ```
 make derived_data/cleaned_data.csv
