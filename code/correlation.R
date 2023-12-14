@@ -1,8 +1,9 @@
-install.packages("png")
+library(tidyverse)
+library(dplyr)
 library(png)
 library(corrplot)
 
-overdose <- read_csv("work/source_data/CDC_Drug_Overdose_Deaths.csv", locale = locale(encoding = "latin1"))
+overdose <- read_csv("source_data/CDC_Drug_Overdose_Deaths.csv", locale = locale(encoding = "latin1"))
 num_overdose <- overdose[, -c(1, 2)]
 num_overdose <- num_overdose[, -c(2:14)]
 num_overdose <- num_overdose[, -c(5)]
@@ -12,6 +13,6 @@ corr <- round(cor(num_overdose), 1)
 
 corrplot(corr, type = "lower", tl.cex = 0.8)
 
-png("work/figures/correlation_matrix.png", width=680, height=680)
+png("figures/correlation_matrix.png", width=680, height=680)
 corrplot(corr, type = "lower", tl.cex = 1.5)
 dev.off()

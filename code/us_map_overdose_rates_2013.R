@@ -1,5 +1,6 @@
 library(maps)
 library(tidyverse)
+library(ggplot2)
 
 ### Load in datasets
 us_map <- map_data("state")

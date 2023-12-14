@@ -1,7 +1,9 @@
 library(tidyverse)
 library(readr)
+library(ggplot2)
+library(dplyr)
 
-ssp <- read_csv("work/source_data/SSP_Data.csv", locale = locale(encoding = "latin1"))
+ssp <- read_csv("source_data/SSP_Data.csv", locale = locale(encoding = "latin1"))
 
 ssp_mutated <- ssp %>%
   mutate(

@@ -13,7 +13,7 @@ ggplot(overdose, aes(x = `2019 Poverty rate (percent of persons in poverty)`, y 
        y = "2019 Overdose Rate") +
   theme_minimal()
 
-ggsave(filename = "work/figures/poverty_vs_overdose.png", 
+ggsave(filename = "figures/poverty_vs_overdose.png", 
        width = 10,  
        height = 8, 
        units = "in")  

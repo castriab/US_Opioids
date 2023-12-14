@@ -1,12 +1,11 @@
-install.packages("maps")
 library(maps)
 library(tidyverse)
 
 ### Load in datasets
 us_map <- map_data("state")
 
-overdose <- read_csv("work/source_data/CDC_Drug_Overdose_Deaths.csv", locale = locale(encoding = "latin1"))
-ssp <- read_csv("work/source_data/SSP_Data.csv", locale = locale(encoding = "latin1"))
+overdose <- read_csv("source_data/CDC_Drug_Overdose_Deaths.csv", locale = locale(encoding = "latin1"))
+ssp <- read_csv("source_data/SSP_Data.csv", locale = locale(encoding = "latin1"))
 
 merged_data <- merge(overdose, ssp, by = "State")
 
@@ -26,7 +25,7 @@ ggplot(us_map_merged, aes(x = long, y = lat, group = group, fill = `ssp_does sta
        fill = "State Allows SSP") +
   theme_minimal()
 
-ggsave(filename = "work/figures/us_map_ssp.png", 
+ggsave(filename = "figures/us_map_ssp.png", 
        width = 6,  
        height = 4, 
        units = "in") 
