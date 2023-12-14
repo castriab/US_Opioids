@@ -16,7 +16,7 @@ us_map_merged <- merge(us_map, merged_data, by.x = "region", by.y = "State", all
 ### Make graph
 ggplot(us_map_merged, aes(x = long, y = lat, group = group, fill = `2013 Age-adjusted Rate (per 100,000 population)`)) +
   geom_polygon(color = "white", size = 0.5) +
-  scale_fill_gradient(low = "lightblue", high = "darkblue", na.value = "grey50", guide = "legend", name = "Rate") +
+  scale_fill_gradient(low = "lightblue", high = "darkblue", na.value = "grey50", guide = "legend", name = "Rate", limits=c(1, 50)) +
   labs(title = "2013 Overdose Rates in the United States",
        subtitle = "Age-adjusted Rate per 100,000 population",
        fill = "Rate") +
@@ -24,6 +24,6 @@ ggplot(us_map_merged, aes(x = long, y = lat, group = group, fill = `2013 Age-adj
 
 # Save the ggplot object to a file
 ggsave(filename = "work/figures/us_map_overdose_rates_2013.png", 
-       width = 10,  
-       height = 8, 
+       width = 6,  
+       height = 4, 
        units = "in")  
