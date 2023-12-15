@@ -33,7 +33,7 @@ figures/poverty_vs_overdose.png: .created-dirs source_data/CDC_Drug_Overdose_Dea
 figures/correlation_matrix.png: .created-dirs source_data/CDC_Drug_Overdose_Deaths.csv code/correlation.R
 	Rscript code/correlation.R
 	
-figures/us_map_ssp.png: .created-dirs source_data/CDC_Drug_Overdose_Deaths.csv source_data/SSP_Data.csv code/ us_map_ssp_legality.R
+figures/us_map_ssp.png: .created-dirs source_data/CDC_Drug_Overdose_Deaths.csv source_data/SSP_Data.csv code/us_map_ssp_legality.R
 	Rscript code/us_map_ssp_legality.R
 	
 figures/required_services_SSPs.png: .created-dirs source_data/CDC_Drug_Overdose_Deaths.csv source_data/SSP_Data.csv code/required_services_SSPs.R
