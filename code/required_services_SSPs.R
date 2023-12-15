@@ -41,7 +41,7 @@ ggplot(service_counts_long, aes(x = Service, y = Count, fill = Service)) +
 
 
 # Save the ggplot object to a file
-ggsave(filename = "work/figures/required_services_SSPs.png", 
+ggsave(filename = "figures/required_services_SSPs.png", 
        width = 6,  
        height = 4, 
        units = "in")  

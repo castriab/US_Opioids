@@ -1,3 +1,7 @@
+library(tidyverse)
+library(dplyr)
+library(readr)
+
 overdose <- read_csv("source_data/CDC_Drug_Overdose_Deaths.csv", locale = locale(encoding = "latin1"))
 
 ggplot(overdose, aes(x = `2019 Poverty rate (percent of persons in poverty)`, y = `2019 Age-adjusted Rate (per 100,000 population)`)) +
