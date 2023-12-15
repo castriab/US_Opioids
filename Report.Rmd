@@ -12,6 +12,9 @@ knitr::opts_chunk$set(include = FALSE)
 
 ```{r include=FALSE}
 library(tidyverse)
+library(readr)
+options(kableExtra.auto_format = FALSE)
+library(kableExtra)
 
 overdose <- read_csv("source_data/CDC_Drug_Overdose_Deaths.csv", locale = locale(encoding = "latin1"))
 
@@ -45,8 +48,33 @@ Many states also have additional services that are required to be provided at SS
 
 ![Service Requirements](./figures/required_services_SSPs.png)
 
-# Future Questions
+# Classification
 
 Now that we have some understanding of what our data sets look like, we can explore which of these variables impact overdose rates. This is a rather small data set, as it only contains information about the 50 states and Washington DC, therefore, there are limitations to this analysis. 
 
-In the future, I would combine this with a larger data set that has information about the overdose deaths in each state. With this larger data set, more analysis could be conducted to see which variables predict overdose death. These predictions could point us towards economic and political solutions to slow this crisis. 
+Despite these limitations, I conducted K-Fold Cross Validation on this data set. This is done to simulate having more data by repeating our train test split in a very specific way. This technique walks down the data set in steps of K and re-runs the model each time. 
+
+I established a new variable for when the overdose rate per 100,000 was particularly high, higher than 25 deaths. 
+
+```{r echo=FALSE}
+coefficients_table <- read_csv("derived_data/coefficients_table.csv", show_col_types = FALSE)
+
+make_outputs <- function(){
+  print(kable_styling(kable(coefficients_table, 
+                            format = "simple", 
+                            col.names = c('Parameters', 'Significance'))))
+}
+
+make_outputs()
+
+```
+![Coefficients Table](./derived_data/coefficients_table.csv)
+
+The significant coefficients table the non-zero parameters are 2019 Poverty rate,  2021 GDP per capita, Population density, and the legality of SSPs. 
+
+We can then examine the ROC Curve and AUC of this model to check the performance of this classification model. The ROC curve has a good shape and its AUC is 0.852, which indicates a good classification level. 
+
+![ROC Curve](./figures/roc.png)
+
+# Future Questions
+In the future, I would combine this with a larger data set that has information about the overdose deaths in each state. With this larger data set, a more robust and accurate analysis could be conducted to see which variables predict overdose death. These predictions could point us towards economic and political solutions to slow this crisis. 

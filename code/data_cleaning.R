@@ -29,6 +29,6 @@ merged_data <- merge(overdose, ssp_mutated, by = "State")
 
 merged_data$`State` <- tolower(merged_data$`State`)
 
-write_csv(merged_data, "work/derived_data/cleaned_data.csv")
+write_csv(merged_data, "derived_data/cleaned_data.csv")
 
 

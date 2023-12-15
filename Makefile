@@ -11,8 +11,12 @@ clean:
 	touch .created-dirs
 	
 # Data cleaning 
-derived_data/cleaned_data.csv: .created-dirs code/ data_cleaning.R source_data/CDC_Drug_Overdose_Deaths.csv source_data/SSP_Data.csv
+derived_data/cleaned_data.csv: .created-dirs code/data_cleaning.R source_data/CDC_Drug_Overdose_Deaths.csv source_data/SSP_Data.csv
 	Rscript code/data_cleaning.R
+
+# CSV table for regression
+derived_data/coefficients_table.csv: .created-dirs code/regression.R source_data/CDC_Drug_Overdose_Deaths.csv source_data/SSP_Data.csv
+	Rscript code/regression.R
 
 # Make figures for report
 figures/state_overdose_rates_2019.png: .created-dirs source_data/CDC_Drug_Overdose_Deaths.csv code/state_overdose_rates_2019.R
@@ -39,7 +43,10 @@ figures/us_map_ssp.png: .created-dirs source_data/CDC_Drug_Overdose_Deaths.csv s
 figures/required_services_SSPs.png: .created-dirs source_data/CDC_Drug_Overdose_Deaths.csv source_data/SSP_Data.csv code/required_services_SSPs.R
 	Rscript code/required_services_SSPs.R
 	
-report.html: figures/us_map_overdose_rates_2013.png figures/us_map_overdose_rates_2019.png figures/poverty_vs_overdose.png figures/correlation_matrix.png figures/us_map_ssp.png figures/required_services_SSPs.png
+figures/roc.png: .created-dirs code/regression.R source_data/CDC_Drug_Overdose_Deaths.csv source_data/SSP_Data.csv
+	Rscript code/regression.R
+	
+report.html: derived_data/coefficients_table.csv figures/us_map_overdose_rates_2013.png figures/us_map_overdose_rates_2019.png figures/poverty_vs_overdose.png figures/correlation_matrix.png figures/us_map_ssp.png figures/required_services_SSPs.png figures/roc.png
 	R -e "rmarkdown::render(\"Report.Rmd\", output_format = \"html_document\")"
 
 	
