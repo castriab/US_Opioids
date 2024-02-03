@@ -8,7 +8,15 @@ To explore these connections, I used two data sets. The first data set was extra
 
 ## Getting started
 
-This repository can be built using Docker. Run this command in your preferred terminal to create a docker container.
+First, open your perferred terminal and clone this repository by running this command.
+
+```
+git clone https://github.com/castriab/BIOS611
+
+cd 611/
+```
+
+This repository can be built using Docker. Run this command in your terminal to create a docker container.
 
 ``` 
 docker build . -t 611 
