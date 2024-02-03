@@ -13,7 +13,7 @@ First, open your perferred terminal and clone this repository by running this co
 ```
 git clone https://github.com/castriab/BIOS611
 
-cd 611/
+cd BIOS611/
 ```
 
 This repository can be built using Docker. Run this command in your terminal to create a docker container.
