@@ -29,7 +29,7 @@ To explore these connections, I used two datasets. The first dataset was extract
 
 The second dataset has information harm reduction laws in each state, specifically focusing on the legality of syringe service programs. According to the CDC, syringe services programs (SSPs) are community-based prevention programs that offer safe access to and disposal of sterile syringes and injection equipment. These programs also offer vaccinations, testing, and linkage to care and treatment for infectious diseases and substance use disorders. This second dataset is available [here](https://lawatlas.org/datasets/syringe-services-programs-laws).
 
-#  Explantory Data Analysis
+#  Exploratory Data Analysis
 
 I looked at how drug overdose rates have changed overtime by examining the overdose rates across the United States in 2013 and in 2019. In examining these two maps, it seems as though most states' overdose rates worsened. However, a limited number of states in the mid-west improved: Montana, Nevada, Oklahoma, Utah, and Wyoming.
 ![2013 Overdose Rate](./figures/us_map_overdose_rates_2013.png) 
